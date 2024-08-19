@@ -1,0 +1,152 @@
+{
+    "download_bbso" :
+    {
+        "period" : "00:10:00",
+        "exec" : "python /home/eunsu/swpy/download/download_bbso.py"
+    },
+
+    "download_dst" :
+    {
+        "period" : "00:10:00",
+        "exec" : "python /home/eunsu/swpy/download/download_dst.py"
+
+    },
+
+    "download_kasi_mp" :
+    {
+        "period" : "00:01:00",
+        "exec" : "python /home/eunsu/swpy/download/download_kasi_mp.py"
+    },
+
+    "download_kasi_asc_fits" :
+    {
+        "period" : "24:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_kasi_asc.py --uid asc_fits"
+    },
+
+    "download_kasi_asc_jpg" :
+    {
+        "period" : "24:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_kasi_asc.py --uid asc_jpg"
+    },
+
+    "download_kasi_mm_mi_milsec_dat" :
+    {
+        "period" : "24:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_kasi_mm.py --uid mi_milsec_dat"
+    },
+
+    "download_kasi_mm_min" :
+    {
+        "period" : "00:30:00",
+        "exec" : "python /home/eunsu/swpy/download/download_kasi_mm.py --uid min"
+    },
+
+    "download_kasi_mm_sec" :
+    {
+        "period" : "00:30:00",
+        "exec" : "python /home/eunsu/swpy/download/download_kasi_mm.py --uid sec"
+    },
+
+    "download_kasi_mm_sec5" :
+    {
+        "period" : "00:30:00",
+        "exec" : "python /home/eunsu/swpy/download/download_kasi_mm.py --uid sec5"
+    },
+
+    "download_kasi_ecallisto_spectrum" :
+    {
+        "period" : "00:15:00",
+        "exec" : "python /home/eunsu/swpy/download/download_kasi_ecallisto.py --uid spectrum"
+    },
+
+    "download_kasi_ecallisto_position" :
+    {
+        "period" : "00:30:00",
+        "exec" : "python /home/eunsu/swpy/download/download_kasi_ecallisto.py --uid position"
+    },
+
+    "download_nasa_c2" :
+    {
+        "period" : "01:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_nasa.py --uid c2"
+    },
+
+    "download_nasa_c3" :
+    {
+        "period" : "01:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_nasa.py --uid c3"
+    },
+
+    "download_swpc_curind" :
+    {
+        "period" : "00:05:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid curind"
+    },
+
+    "download_swpc_dayind_latest" :
+    {
+        "period" : "00:05:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid dayind_latest"
+    },
+
+    "download_swpc_dgd" :
+    {
+        "period" : "00:05:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid dgd"
+    },
+
+    "download_swpc_a_boutok" :
+    {
+        "period" : "00:05:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid a_boutok"
+    },
+
+    "download_swpc_dayind" :
+    {
+        "period" : "01:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid dayind"
+    },
+
+    "download_swpc_srs" :
+    {
+        "period" : "01:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid srs"
+    },
+
+    "download_swpc_dayobs" :
+    {
+        "period" : "01:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid dayobs"
+    },
+
+    "download_swpc_rsga" :
+    {
+        "period" : "01:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid rsga"
+    },
+
+    "download_swpc_sgas" :
+    {
+        "period" : "01:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid sgas"
+    },
+
+    "download_swpc_daypre" :
+    {
+        "period" : "01:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid daypre"
+    },
+
+    "download_swpc_aurora_power" :
+    {
+        "period" : "01:00:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid aurora_power"
+    },
+
+    "download_swpc_dsd" :
+    {
+        "period" : "00:05:00",
+        "exec" : "python /home/eunsu/swpy/download/download_swpc.py --uid dsd"
+    }
+}

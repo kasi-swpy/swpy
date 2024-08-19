@@ -1,0 +1,1 @@
+from swpy.swds.dataset.goes.goes import goes_open as open

@@ -1,0 +1,73 @@
+{
+    "access_bbso" :
+    {
+        "protocol" : "ftp",
+        "address" : "ftp.bbso.njit.edu",
+        "port" : null,
+        "username" : null,
+        "password" : null
+    },
+
+    "access_dst" :
+    {
+        "protocol" : "http",
+        "address" : "wdc.kugi.kyoto-u.ac.jp",
+        "port" : null,
+        "username" : null,
+        "password" : null
+    },
+
+    "access_kasi_mp" :
+    {
+        "protocol" : "http",
+        "address" : "kswrc.kasi.re.kr",
+        "port" : null,
+        "username" : null,
+        "password" : null
+    },
+
+    "access_kasi_asc" :
+    {
+        "protocol" : "ftp",
+        "address" : "222.103.36.152",
+        "port" : "21",
+        "username" : "admin",
+        "password" : "rhksflwk"
+    },
+
+    "access_kasi_mm" :
+    {
+        "protocol" : "ftp",
+        "address" : "222.103.36.158",
+        "port" : "21",
+        "username" : "admin",
+        "password" : "solar"
+    },
+
+    "access_kasi_ecallisto" :
+    {
+        "protocol" : "ftp",
+        "address" : "210.98.27.96",
+        "port" : "21",
+        "username" : "Kasi",
+        "password" : "45_870MHz"
+    },
+
+    "access_nasa" :
+    {
+        "protocol" : "https",
+        "address" : "soho.nascom.nasa.gov",
+        "port" : null,
+        "username" : null,
+        "password" : null
+    },
+
+    "access_swpc" :
+    {
+        "protocol" : "ftp",
+        "address" : "ftp.swpc.noaa.gov",
+        "port" : null,
+        "username" : null,
+        "password" : null
+    }
+}

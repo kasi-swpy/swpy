@@ -1,0 +1,352 @@
+{
+    "download_bbso" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_bbso",
+        "source_pattern" : "pub/archive/%Y/%m/%d/",
+        "destination_path" : "/home/eunsu/test/data/bbso/%Y/%m/%d/",
+        "log_path" : "/home/eunsu/test/log/bbso/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp/",
+        "period" : "00:10:00",
+        "today" : "1"
+    },
+
+    "download_dst" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_dst",
+        "source_pattern" : "dst_realtime/%Y%m/index.html",
+        "destination_path" : "/home/eunsu/test/data/wdc/dst/%Y/%Y%m_dst_obs.txt",
+        "log_path" : "/home/eunsu/test/log/dst/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:10:00",
+        "today" : "1"
+    },
+
+    "download_kasi_mp" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_kasi_mp",
+        "destination_path" : "/home/eunsu/test/data/kasi/magnetopause/%Y/%Y%m%d/magnetopause_%Y%m%d_%H%M.png",
+        "source_pattern" : "swml/plot_magnetopause_rbsp.php?date=%Y%m%d&amp;time=%H%M&amp;flag=1",
+        "log_path" : "/home/eunsu/test/log/kasi/mp/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:01:00",
+        "today" : "1"
+    },
+
+    "download_kasi_asc_fits" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_kasi_asc",
+        "source_pattern" : "fits/%Y/%Y%m%d/",
+        "destination_path" : "/home/eunsu/test/data/kasi/asc/fits/%Y/%Y%m%d/",
+        "log_path" : "/home/eunsu/test/log/kasi/asc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "24:00:00",
+        "today" : "1",
+        "uid" : "fits"        
+
+    },
+
+    "download_kasi_asc_jpg" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_kasi_asc",
+        "source_pattern" : "jpg/%Y/%Y%m%d/",
+        "destination_path" : "/home/eunsu/test/data/kasi/asc/jpg/%Y/%Y%m%d/",
+        "log_path" : "/home/eunsu/test/log/kasi/asc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "24:00:00",
+        "today" : "1",
+        "uid" : "jpg"
+    },
+
+    "download_kasi_mm_mi_milsec_dat" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_kasi_mm",
+        "source_pattern" : "boh/mi_milsec/%Y/mi_boh_mil_I%Y%m%dL.dat",
+        "destination_path" : "/home/eunsu/test/data/kasi/magnetometer/boh/mi_milsec/%Y/mi_boh_mil_I%Y%m%dL.dat",
+        "log_path" : "/home/eunsu/test/log/kasi/mm/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "24:00:00",
+        "today" : "0",
+        "uid" : "mi_milsec_dat"
+    },
+
+    "download_kasi_mm_min" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_kasi_mm",
+        "source_pattern" : "boh/min/%Y/gm_boh_min_%Y%m%d.txt",
+        "destination_path" : "/home/eunsu/test/data/kasi/magnetometer/boh/min/%Y/gm_boh_min_%Y%m%d.txt",
+        "log_path" : "/home/eunsu/test/log/kasi/mm/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:30:00",
+        "today" : "1",
+        "uid" : "min"
+    },
+
+    "download_kasi_mm_sec" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_kasi_mm",
+        "source_pattern" : "boh/sec/%Y/gm_boh_sec_%Y%m%d.dat",
+        "destination_path" : "/home/eunsu/test/data/kasi/magnetometer/boh/sec/%Y/gm_boh_sec_%Y%m%d.dat",
+        "log_path" : "/home/eunsu/test/log/kasi/mm/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:30:00",
+        "today" : "0",
+        "uid" : "sec"
+    },
+
+    "download_kasi_mm_sec5" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_kasi_mm",
+        "source_pattern" : "boh/sec5/%Y/gm_boh_sec5_%Y%m%d.txt",
+        "destination_path" : "/home/eunsu/test/data/kasi/magnetometer/boh/sec5/%Y/gm_boh_sec5_%Y%m%d.txt",
+        "log_path" : "/home/eunsu/test/log/kasi/mm/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:30:00",
+        "today" : "0",
+        "uid" : "sec5"
+    },
+
+    "download_kasi_ecallisto_spectrum" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_kasi_ecallisto",
+        "source_pattern" : "Data/KASI_%Y%m%d_%H%M%S_59.fit",
+        "destination_path" : "/home/eunsu/test/data/kasi/e_callisto/spectrum/%Y/%Y%m%d/ec_sp_%Y%m%d_%H%M%S_59.fit",
+        "log_path" : "/home/eunsu/test/log/kasi/ecallisto/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:15:00",
+        "today" : "1",
+        "uid" : "spectrum"
+
+    },
+
+    "download_kasi_ecallisto_position" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_kasi_ecallisto",
+        "source_pattern" : "LPTCS/LPTCS_%Y%m%d.txt",
+        "destination_path" : "/home/eunsu/test/data/kasi/e_callisto/position/%Y/LPTCS_%Y%m%d.txt",
+        "log_path" : "/home/eunsu/test/log/kasi/ecallisto/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:30:00",
+        "today" : "1",
+        "uid" : "position"
+    },
+
+    "download_nasa_c2" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_nasa",
+        "source_pattern" : "data/REPROCESSING/Completed/%Y/c2/%Y%m%d/",
+        "destination_path" : "/home/eunsu/test/data/nasa/soho/c2/%Y/%Y%m%d/",
+        "arm_path" : "/home/eunsu/test/arm/latest_c2.jpg",
+        "log_path" : "/home/eunsu/test/log/nasa/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "01:00:00",
+        "today" : "1",
+        "uid" : "c2"
+    },
+
+    "download_nasa_c3" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_nasa",
+        "source_pattern" : "data/REPROCESSING/Completed/%Y/c3/%Y%m%d/",
+        "destination_path" : "/home/eunsu/test/data/nasa/soho/c3/%Y/%Y%m%d/",
+        "arm_path" : "/home/eunsu/test/arm/latest_c3.jpg",
+        "log_path" : "/home/eunsu/test/log/nasa/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "01:00:00",
+        "today" : "1",
+        "uid" : "c3"
+    },
+
+    "download_swpc_curind" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/latest/curind.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/dayindices/curind.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:05:00",
+        "today" : "1",
+        "uid" : "curind"
+    },
+
+    "download_swpc_dayind_latest" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/latest/dayind.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/dayindices/dayind.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:05:00",
+        "today" : "1",
+        "uid" : "dayind_latest"
+    },
+
+    "download_swpc_dgd" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/indices/DGD.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/indices/DGD.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:05:00",
+        "today" : "1",
+        "uid" : "dgd"
+    },
+
+    "download_swpc_a_boutok" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/indices/boutok/%d[uB3]%yA_BOUTOK.TEXT",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/indices/boutok/%Y/%d[uB3]%yA.TEXT",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:05:00",
+        "today" : "0",
+        "uid" : "a_boutok"
+    },
+
+    "download_swpc_dayind" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/indices/dayind/%m%ddayind.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/dayindices/%Y/%Y%m%ddayind.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "01:00:00",
+        "today" : "0",
+        "uid" : "dayind"
+    },
+
+    "download_swpc_srs" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/forecasts/SRS/%m%dSRS.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/forecasts/srs/%Y/%Y%m%dSRS.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "01:00:00",
+        "today" : "1",
+        "uid" : "srs"
+    },
+
+    "download_swpc_dayobs" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/forecasts/dayobs/%m%ddayobs.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/forecasts/dayobs/%Y/%Y%m%ddayobs.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "01:00:00",
+        "today" : "0",
+        "uid" : "dayobs"
+    },
+
+    "download_swpc_rsga" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/forecasts/RSGA/%m%dRSGA.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/forecasts/rsga/%Y/%Y%m%dRSGA.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "01:00:00",
+        "today" : "0",
+        "uid" : "rsga"
+    },
+
+    "download_swpc_sgas" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/forecasts/SGAS/%m%dSGAS.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/forecasts/sgas/%Y/%Y%m%dSGAS.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "01:00:00",
+        "today" : "1",
+        "uid" : "sgas"
+    },
+
+    "download_swpc_daypre" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/forecasts/daypre/%m%ddaypre.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/forecasts/daypre/%Y/%Y%m%ddaypre.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "01:00:00",
+        "today" : "0",
+        "uid" : "daypre"
+    },
+
+    "download_swpc_aurora_power" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/lists/hpi/swpc_aurora_power_%Y%m%d.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/hpi/%Y/swpc_aurora_power_%Y%m%d.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "01:00:00",
+        "today" : "1",
+        "uid" : "aurora_power"
+    },
+
+    "download_swpc_dsd" :
+    {
+        "transfer" : "download",
+        "data_process_id" : null,
+        "access_id" : "access_swpc",
+        "source_pattern" : "pub/indices/old_indices/%YQ[q]_DSD.txt",
+        "destination_path" : "/home/eunsu/test/data/noaa/swpc/dsd/%Y_DSD.txt",
+        "log_path" : "/home/eunsu/test/log/swpc/%Y/%Y%m%d.log",
+        "temporary_dir" : "/home/eunsu/test/temp",
+        "period" : "00:05:00",
+        "today" : "1",
+        "uid" : "dsd"
+    }
+}
