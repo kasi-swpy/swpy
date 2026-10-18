@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swpy"
+version = "0.1.0"
+description = "Access KASI space-weather data through the SWPy distribution API"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["requests"]
+
+[project.scripts]
+swpy = "swpy.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["swpy*"]
