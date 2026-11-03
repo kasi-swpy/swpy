@@ -65,6 +65,52 @@ paths = c.get("nasa_soho_c2", "2026-10-17", "2026-10-18", dest="data")
 csv_path = c.csv("rt_goes_xray", "2026-10-17", "2026-10-18", columns=["datetime", "flux_long"])
 ```
 
+## Facts for summaries
+
+```python
+c.summary("2026-10-27", "2026-11-03")       # daily extremes, G/R/S levels, events, data coverage
+c.events("2026-10-10", "2026-10-12", types="storm,flare", min_class="C1")
+c.texts("2026-11-02", "2026-11-03", kinds="rsga,forecast")   # issued NOAA SWPC prose
+c.table_json("df_omni_hourly", "2025-01-01", "2026-01-01",
+             columns=["datetime", "kp_x10", "dst"], resample="day", agg="max")
+```
+
+The server returns facts only (numbers, NOAA scale levels, event lists and how
+much of each day the data cover); writing a summary is up to you or your AI
+assistant. Missing data is reported as such, never as a quiet day.
+
+## Use with an AI assistant (MCP)
+
+`swpy-mcp` is an [MCP](https://modelcontextprotocol.io) server exposing the facts
+as tools (`get_period_summary`, `list_events`, `get_issued_texts`,
+`get_timeseries`, `list_datasets`), so an assistant such as Claude can answer
+"summarize last week's space weather" from the data.
+
+```bash
+pip install "swpy[mcp] @ git+https://github.com/kasi-swpy/swpy"
+```
+
+Claude Code:
+
+```bash
+claude mcp add swpy --env SWPY_SERVER=http://<server>:8032 -- swpy-mcp
+```
+
+Claude Desktop (`claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "swpy": {
+      "command": "swpy-mcp",
+      "env": {"SWPY_SERVER": "http://<server>:8032"}
+    }
+  }
+}
+```
+
+Use the full path to `swpy-mcp` if it is not on the PATH Claude Desktop sees.
+
 ## Limits
 
 - The server packs at most 5,000 files / 20 GB into one zip. The client splits requests into

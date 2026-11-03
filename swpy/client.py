@@ -201,6 +201,38 @@ class Client:
                 zf.extractall(dest)
         return [dest / name for name in names]
 
+    # ---- facts for summaries ---------------------------------------------------
+
+    def summary(self, start=None, end=None, min_class="M1.0"):
+        """Facts for [start, end) (server default: the last 7 days).
+
+        Daily extremes, NOAA G/R/S levels reached, events and per-day data
+        coverage, as the server's versioned facts document (swpy.facts/1).
+        Numbers only — no prose.
+        """
+        return self._get("summary", start=_iso(start), end=_iso(end), min_class=min_class)
+
+    def events(self, start=None, end=None, types="flare,storm,cme,alert", min_class="M1.0"):
+        """Flare, geomagnetic-storm, CME and SWPC-alert lists for the window."""
+        return self._get("events", start=_iso(start), end=_iso(end),
+                         types=types, min_class=min_class)
+
+    def texts(self, start=None, end=None, kinds="forecast,rsga,alert", limit=31):
+        """SWPC prose issued in the window (3-day forecasts, RSGA, alerts)."""
+        return self._get("texts", start=_iso(start), end=_iso(end), kinds=kinds, limit=limit)
+
+    def table_json(self, table, start=None, end=None, columns=None, resample=None,
+                   agg="mean", limit=10000):
+        """A table window as JSON (columns + rows), optionally resampled.
+
+        Args:
+            resample: None, "hour" or "day".
+            agg: "mean", "min" or "max" when resampling.
+        """
+        return self._get(f"tables/{table}/json", start=_iso(start), end=_iso(end),
+                         columns=",".join(columns) if columns else None,
+                         resample=resample, agg=agg, limit=limit)
+
     # ---- tables ----------------------------------------------------------------
 
     def csv(self, table, start=None, end=None, columns=None, dest=None):
