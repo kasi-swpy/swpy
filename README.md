@@ -73,6 +73,8 @@ c.events("2026-10-10", "2026-10-12", types="storm,flare", min_class="C1")
 c.texts("2026-11-02", "2026-11-03", kinds="rsga,forecast")   # issued NOAA SWPC prose
 c.table_json("df_omni_hourly", "2025-01-01", "2026-01-01",
              columns=["datetime", "kp_x10", "dst"], resample="day", agg="max")
+c.headers("aia.lev1_euv_12s", "2024-05-10T16:00", "2024-05-10T19:00",   # SDO FITS header catalogue
+          wavelength=193, good_only=True, keys=["DATAMEDN"])
 ```
 
 The server returns facts only (numbers, NOAA scale levels, event lists and how
