@@ -233,6 +233,31 @@ class Client:
                          columns=",".join(columns) if columns else None,
                          resample=resample, agg=agg, limit=limit)
 
+    # ---- FITS header catalogue -------------------------------------------------
+
+    def header_series(self):
+        """FITS header series served (row counts, time ranges, columns)."""
+        return self._get("headers")
+
+    def headers(self, series, start=None, end=None, wavelength=None, camera=None,
+                good_only=False, columns="core", keys=None, limit=1000):
+        """Header rows of one JSOC series (e.g. "aia.lev1_euv_12s") by T_REC.
+
+        Args:
+            wavelength: AIA channel (e.g. 193); camera: HMI camera.
+            good_only: Keep only QUALITY = 0.
+            columns: "core" or "all" typed columns.
+            keys: Extra header keywords (list of JSOC-spelled names).
+
+        Returns:
+            Dict with "rows" (file_path relative to the archive root holding
+            solar_images/) and "truncated".
+        """
+        return self._get(f"headers/{series}", start=_iso(start), end=_iso(end),
+                         wavelength=wavelength, camera=camera,
+                         good_only=str(good_only).lower(), columns=columns,
+                         keys=",".join(keys) if keys else None, limit=limit)
+
     # ---- tables ----------------------------------------------------------------
 
     def csv(self, table, start=None, end=None, columns=None, dest=None):

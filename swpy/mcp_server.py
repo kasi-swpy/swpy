@@ -25,7 +25,8 @@ energetic particles) for a time window.
 
 - Start with get_period_summary for any "what happened" or "summarize" question:
   one call returns daily extremes, the NOAA G/R/S levels reached, events and
-  data coverage. Use list_events, get_issued_texts and get_timeseries for detail.
+  data coverage. Use list_events, get_issued_texts and get_timeseries for detail,
+  and find_sdo_observations for SDO images (frames, quality, pointing) of a time.
 - All times are UTC. Windows are [start, end); a bare date means 00:00 UTC.
 - Report numbers as the tools give them, with units, and say which day or time
   they occurred. Use NOAA scale names (G1-G5, R1-R5, S1-S5) as returned.
@@ -119,6 +120,27 @@ def get_timeseries(table: str, start: str | None = None, end: str | None = None,
     """
     cols = [c.strip() for c in columns.split(",")] if columns else None
     return _call(_api().table_json, table, start, end, cols, resample, agg, limit)
+
+
+@server.tool()
+def find_sdo_observations(series: str = "aia.lev1_euv_12s", start: str | None = None,
+                          end: str | None = None, wavelength: float | None = None,
+                          good_only: bool = True, keys: str | None = None,
+                          limit: int = 200) -> dict:
+    """SDO level-1 FITS observations (header catalogue) in a UTC window, by T_REC.
+
+    Series: aia.lev1_euv_12s (AIA EUV; wavelength 94, 131, 171, 193, 211, 304,
+    335), hmi.m_45s / hmi.m_720s (magnetograms), hmi.ic_45s (continuum). The
+    archive holds about one frame per hour per channel for most years. Each row
+    has observation times, QUALITY (0 = good; good_only keeps only those),
+    exposure, WCS basics, Sun distance/radius and the file path (relative to the
+    archive root holding solar_images/; files are not downloadable through this
+    API). keys adds header keywords (comma-separated, JSOC spelling such as
+    DATAMEDN).
+    """
+    extra = [k.strip() for k in keys.split(",")] if keys else None
+    return _call(_api().headers, series, start, end, wavelength=wavelength,
+                 good_only=good_only, keys=extra, limit=limit)
 
 
 @server.tool()
