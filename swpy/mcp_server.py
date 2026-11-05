@@ -28,6 +28,10 @@ energetic particles) for a time window.
   data coverage. Use list_events, get_issued_texts and get_timeseries for detail,
   and find_sdo_observations for SDO images (frames, quality, pointing) of a time.
 - All times are UTC. Windows are [start, end); a bare date means 00:00 UTC.
+- source="auto" (default) uses realtime data and fills gaps with definitive
+  data. For past years use source="definitive" (GOES since 2017, OMNI since
+  1995): realtime data start in October 2026, and definitive data lag real
+  time by days to months. Each coverage entry names the table it came from.
 - Report numbers as the tools give them, with units, and say which day or time
   they occurred. Use NOAA scale names (G1-G5, R1-R5, S1-S5) as returned.
 - Check coverage and notes before concluding anything is quiet: a fraction of 0
@@ -69,7 +73,7 @@ def _call(fn, *args, **kwargs):
 
 @server.tool()
 def get_period_summary(start: str | None = None, end: str | None = None,
-                       min_flare_class: str = "M1.0") -> dict:
+                       min_flare_class: str = "M1.0", source: str = "auto") -> dict:
     """Space-weather facts for a UTC window [start, end); default the last 7 days.
 
     Returns daily extremes (Kp, Dst, X-ray flux and flare class, >=10 MeV
@@ -81,17 +85,21 @@ def get_period_summary(start: str | None = None, end: str | None = None,
         start: ISO date or time (UTC), e.g. "2026-10-27".
         end: ISO date or time (UTC), exclusive.
         min_flare_class: Smallest flare class to list, e.g. "C5", "M1".
+        source: "auto", "realtime" or "definitive" (see the instructions).
     """
-    return _call(_api().summary, start, end, min_flare_class)
+    return _call(_api().summary, start, end, min_flare_class, source)
 
 
 @server.tool()
 def list_events(start: str | None = None, end: str | None = None,
-                types: str = "flare,storm,cme,alert", min_flare_class: str = "M1.0") -> dict:
+                types: str = "flare,storm,cme,alert", min_flare_class: str = "M1.0",
+                source: str = "auto") -> dict:
     """Event lists for a UTC window: flares (by peak time), geomagnetic storms
     (3-hour Kp >= 5), CMEs (DONKI; CACTus halo detections) and SWPC alert
-    headlines. types is a comma-separated subset of flare,storm,cme,alert."""
-    return _call(_api().events, start, end, types, min_flare_class)
+    headlines. types is a comma-separated subset of flare,storm,cme,alert.
+    source picks the Kp grade of the storm list ("definitive" for past years).
+    The flare list starts in October 2026 (realtime SWPC list only)."""
+    return _call(_api().events, start, end, types, min_flare_class, source)
 
 
 @server.tool()

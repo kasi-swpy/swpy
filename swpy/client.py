@@ -203,19 +203,28 @@ class Client:
 
     # ---- facts for summaries ---------------------------------------------------
 
-    def summary(self, start=None, end=None, min_class="M1.0"):
+    def summary(self, start=None, end=None, min_class="M1.0", source="auto"):
         """Facts for [start, end) (server default: the last 7 days).
 
         Daily extremes, NOAA G/R/S levels reached, events and per-day data
         coverage, as the server's versioned facts document (swpy.facts/1).
         Numbers only — no prose.
-        """
-        return self._get("summary", start=_iso(start), end=_iso(end), min_class=min_class)
 
-    def events(self, start=None, end=None, types="flare,storm,cme,alert", min_class="M1.0"):
-        """Flare, geomagnetic-storm, CME and SWPC-alert lists for the window."""
+        Args:
+            source: "auto" (realtime, definitive where realtime is missing),
+                "realtime" or "definitive" (reaches back years, lags real time).
+        """
+        return self._get("summary", start=_iso(start), end=_iso(end), min_class=min_class,
+                         source=source)
+
+    def events(self, start=None, end=None, types="flare,storm,cme,alert", min_class="M1.0",
+               source="auto"):
+        """Flare, geomagnetic-storm, CME and SWPC-alert lists for the window.
+
+        source picks the Kp grade of the storm list, as for summary().
+        """
         return self._get("events", start=_iso(start), end=_iso(end),
-                         types=types, min_class=min_class)
+                         types=types, min_class=min_class, source=source)
 
     def texts(self, start=None, end=None, kinds="forecast,rsga,alert", limit=31):
         """SWPC prose issued in the window (3-day forecasts, RSGA, alerts)."""

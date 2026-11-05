@@ -69,6 +69,7 @@ csv_path = c.csv("rt_goes_xray", "2026-10-17", "2026-10-18", columns=["datetime"
 
 ```python
 c.summary("2026-10-27", "2026-11-03")       # daily extremes, G/R/S levels, events, data coverage
+c.summary("2024-05-08", "2024-05-16", source="definitive")   # past years: definitive data
 c.events("2026-10-10", "2026-10-12", types="storm,flare", min_class="C1")
 c.texts("2026-11-02", "2026-11-03", kinds="rsga,forecast")   # issued NOAA SWPC prose
 c.table_json("df_omni_hourly", "2025-01-01", "2026-01-01",
