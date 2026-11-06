@@ -249,12 +249,15 @@ class Client:
         return self._get("headers")
 
     def headers(self, series, start=None, end=None, wavelength=None, camera=None,
-                good_only=False, columns="core", keys=None, limit=1000):
-        """Header rows of one JSOC series (e.g. "aia.lev1_euv_12s") by T_REC.
+                good_only=False, columns="core", keys=None, limit=1000, detector=None):
+        """Header rows of one series (e.g. "aia.lev1_euv_12s", "lasco.lev05")
+        by its time column (see header_series()).
 
         Args:
-            wavelength: AIA channel (e.g. 193); camera: HMI camera.
-            good_only: Keep only QUALITY = 0.
+            wavelength: AIA channel (e.g. 193); camera: HMI camera;
+                detector: LASCO C2/C3 or PHI HRT/FDT.
+            good_only: Keep only good frames (QUALITY = 0; LASCO: no missing
+                blocks, normal program; not applicable to PHI).
             columns: "core" or "all" typed columns.
             keys: Extra header keywords (list of JSOC-spelled names).
 
@@ -263,7 +266,7 @@ class Client:
             solar_images/) and "truncated".
         """
         return self._get(f"headers/{series}", start=_iso(start), end=_iso(end),
-                         wavelength=wavelength, camera=camera,
+                         wavelength=wavelength, camera=camera, detector=detector,
                          good_only=str(good_only).lower(), columns=columns,
                          keys=",".join(keys) if keys else None, limit=limit)
 

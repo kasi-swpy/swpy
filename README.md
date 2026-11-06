@@ -86,7 +86,7 @@ assistant. Missing data is reported as such, never as a quiet day.
 
 `swpy-mcp` is an [MCP](https://modelcontextprotocol.io) server exposing the facts
 as tools (`get_period_summary`, `list_events`, `get_issued_texts`,
-`get_timeseries`, `find_sdo_observations`, `list_datasets`), so an assistant such as Claude can answer
+`get_timeseries`, `find_observations`, `list_datasets`), so an assistant such as Claude can answer
 "summarize last week's space weather" from the data.
 
 ```bash
