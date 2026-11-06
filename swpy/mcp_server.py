@@ -27,7 +27,8 @@ energetic particles) for a time window.
   one call returns daily extremes, the NOAA G/R/S levels reached, events and
   data coverage. Use list_events, get_issued_texts and get_timeseries for detail,
   and find_observations for solar images (SDO, SOHO LASCO coronagraph and MDI,
-  Solar Orbiter PHI: frames, quality, pointing) of a time.
+  STEREO SECCHI coronagraphs/heliospheric imagers, Solar Orbiter PHI: frames,
+  quality, pointing) of a time.
 - All times are UTC. Windows are [start, end); a bare date means 00:00 UTC.
 - source="auto" (default) uses realtime data and fills gaps with definitive
   data. For past years use source="definitive" (GOES since 2017, OMNI since
@@ -134,7 +135,8 @@ def get_timeseries(table: str, start: str | None = None, end: str | None = None,
 @server.tool()
 def find_observations(series: str = "aia.lev1_euv_12s", start: str | None = None,
                       end: str | None = None, wavelength: float | None = None,
-                      detector: str | None = None, good_only: bool = True,
+                      detector: str | None = None, observatory: str | None = None,
+                      good_only: bool = True,
                       keys: str | None = None, limit: int = 200) -> dict:
     """Solar image FITS observations (header catalogue) in a UTC window.
 
@@ -143,17 +145,22 @@ def find_observations(series: str = "aia.lev1_euv_12s", start: str | None = None
     continuum) — about one frame per hour per channel for most years;
     mdi.fd_m_96m_lev182 (SOHO MDI magnetograms, 1996-2011); lasco.lev05 (SOHO
     LASCO coronagraph level 0.5, 1995-; detector C2 or C3 — use it for CMEs);
-    phi.l2 (Solar Orbiter PHI magnetograms; the spacecraft is not on the
-    Sun-Earth line: see dsun_au, hgln_obs). Each row has observation times,
-    quality (good_only keeps good frames; LASCO: no missing blocks in the
-    normal program; PHI has no quality flag), exposure, WCS basics and the file
+    secchi.lev05 (STEREO SECCHI level 0.5, 2006-; observatory STEREO_A or
+    STEREO_B (B ends 2014), detector COR1, COR2, HI1 or HI2 — CMEs seen from
+    off the Sun-Earth line, see hgln_obs; downlink SW is the low-resolution
+    space-weather beacon); phi.l2 (Solar Orbiter PHI magnetograms; the
+    spacecraft is not on the Sun-Earth line: see dsun_au, hgln_obs). Each row
+    has observation times, quality (good_only keeps good frames: SDO QUALITY
+    = 0, LASCO/SECCHI no missing blocks; MDI and PHI have no condition),
+    exposure, WCS basics and the file
     path (relative to the archive root holding solar_images/; files are not
     downloadable through this API). keys adds header keywords (comma-separated,
     FITS names with '-' as '__', e.g. DATAMEDN).
     """
     extra = [k.strip() for k in keys.split(",")] if keys else None
     return _call(_api().headers, series, start, end, wavelength=wavelength,
-                 detector=detector, good_only=good_only, keys=extra, limit=limit)
+                 detector=detector, observatory=observatory, good_only=good_only,
+                 keys=extra, limit=limit)
 
 
 @server.tool()
