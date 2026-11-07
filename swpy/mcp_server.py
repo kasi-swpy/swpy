@@ -101,7 +101,9 @@ def list_events(start: str | None = None, end: str | None = None,
     headlines. types is a comma-separated subset of flare,storm,cme,alert.
     source picks the Kp grade of the storm list ("definitive" for past years).
     Flares: the realtime SWPC list from October 2026, the NCEI GOES-R flare
-    summary from 2017 (source="definitive" for past years)."""
+    summary from 2017 (source="definitive" for past years). NCEI classes are on
+    the unscaled science flux: before 2020 they read about 1.4x the classes
+    published then (e.g. 2017-09-06 X14.6 here, X9.3 as usually cited)."""
     return _call(_api().events, start, end, types, min_flare_class, source)
 
 
