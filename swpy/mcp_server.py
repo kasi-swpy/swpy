@@ -100,7 +100,8 @@ def list_events(start: str | None = None, end: str | None = None,
     (3-hour Kp >= 5), CMEs (DONKI; CACTus halo detections) and SWPC alert
     headlines. types is a comma-separated subset of flare,storm,cme,alert.
     source picks the Kp grade of the storm list ("definitive" for past years).
-    The flare list starts in October 2026 (realtime SWPC list only)."""
+    Flares: the realtime SWPC list from October 2026, the NCEI GOES-R flare
+    summary from 2017 (source="definitive" for past years)."""
     return _call(_api().events, start, end, types, min_flare_class, source)
 
 
